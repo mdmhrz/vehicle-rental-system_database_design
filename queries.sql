@@ -491,47 +491,180 @@ CREATE TABLE bookings (
   total_cost int NOT NULL CHECK (total_cost >= 0),
   status varchar(20) NOT NULL CHECK (status IN ('completed', 'confirmed', 'pending'))
 )
-
 -- insert data into bookings
-INSERT INTO bookings
-(user_id, vehicle_id, start_date, end_date, total_cost, status)
+INSERT INTO
+  bookings (
+    user_id,
+    vehicle_id,
+    start_date,
+    end_date,
+    total_cost,
+    status
+  )
 VALUES
-(1, 2, '2023-01-01', '2023-01-05', 240, 'completed'),
-(2, 3, '2023-01-10', '2023-01-12', 60, 'completed'),
-(3, 1, '2023-01-15', '2023-01-18', 150, 'completed'),
-(4, 4, '2023-01-20', '2023-01-22', 200, 'completed'),
-(5, 5, '2023-01-25', '2023-01-27', 180, 'completed'),
-
-(1, 2, '2023-02-01', '2023-02-03', 120, 'completed'),
-(2, 6, '2023-02-05', '2023-02-08', 270, 'completed'),
-(3, 7, '2023-02-10', '2023-02-12', 90, 'completed'),
-(4, 1, '2023-02-15', '2023-02-16', 50, 'completed'),
-(5, 3, '2023-02-18', '2023-02-20', 60, 'completed'),
-
-(6, 8, '2023-03-01', '2023-03-04', 300, 'confirmed'),
-(7, 9, '2023-03-05', '2023-03-06', 140, 'confirmed'),
-(8, 10, '2023-03-08', '2023-03-10', 260, 'confirmed'),
-(9, 2, '2023-03-12', '2023-03-14', 120, 'confirmed'),
-(10, 1, '2023-03-15', '2023-03-17', 100, 'confirmed'),
-
-(1, 4, '2023-04-01', '2023-04-05', 400, 'pending'),
-(2, 5, '2023-04-06', '2023-04-08', 240, 'pending'),
-(3, 6, '2023-04-10', '2023-04-12', 180, 'pending'),
-(4, 7, '2023-04-14', '2023-04-16', 160, 'pending'),
-(5, 8, '2023-04-18', '2023-04-21', 450, 'pending'),
-
-(6, 9, '2023-05-01', '2023-05-03', 280, 'completed'),
-(7, 10, '2023-05-04', '2023-05-07', 390, 'completed'),
-(8, 2, '2023-05-08', '2023-05-10', 120, 'completed'),
-(9, 3, '2023-05-11', '2023-05-12', 30, 'completed'),
-(10, 4, '2023-05-14', '2023-05-17', 300, 'completed'),
-
-(1, 5, '2023-06-01', '2023-06-04', 270, 'confirmed'),
-(2, 6, '2023-06-05', '2023-06-08', 270, 'confirmed'),
-(3, 7, '2023-06-10', '2023-06-12', 90, 'confirmed'),
-(4, 8, '2023-06-14', '2023-06-16', 200, 'confirmed'),
-(5, 9, '2023-06-18', '2023-06-20', 280, 'confirmed');
-
+  (
+    1,
+    2,
+    '2023-01-01',
+    '2023-01-05',
+    240,
+    'completed'
+  ),
+  (2, 3, '2023-01-10', '2023-01-12', 60, 'completed'),
+  (
+    3,
+    1,
+    '2023-01-15',
+    '2023-01-18',
+    150,
+    'completed'
+  ),
+  (
+    4,
+    4,
+    '2023-01-20',
+    '2023-01-22',
+    200,
+    'completed'
+  ),
+  (
+    5,
+    5,
+    '2023-01-25',
+    '2023-01-27',
+    180,
+    'completed'
+  ),
+  (
+    1,
+    2,
+    '2023-02-01',
+    '2023-02-03',
+    120,
+    'completed'
+  ),
+  (
+    2,
+    6,
+    '2023-02-05',
+    '2023-02-08',
+    270,
+    'completed'
+  ),
+  (3, 7, '2023-02-10', '2023-02-12', 90, 'completed'),
+  (4, 1, '2023-02-15', '2023-02-16', 50, 'completed'),
+  (5, 3, '2023-02-18', '2023-02-20', 60, 'completed'),
+  (
+    6,
+    8,
+    '2023-03-01',
+    '2023-03-04',
+    300,
+    'confirmed'
+  ),
+  (
+    7,
+    9,
+    '2023-03-05',
+    '2023-03-06',
+    140,
+    'confirmed'
+  ),
+  (
+    8,
+    10,
+    '2023-03-08',
+    '2023-03-10',
+    260,
+    'confirmed'
+  ),
+  (
+    9,
+    2,
+    '2023-03-12',
+    '2023-03-14',
+    120,
+    'confirmed'
+  ),
+  (
+    10,
+    1,
+    '2023-03-15',
+    '2023-03-17',
+    100,
+    'confirmed'
+  ),
+  (1, 4, '2023-04-01', '2023-04-05', 400, 'pending'),
+  (2, 5, '2023-04-06', '2023-04-08', 240, 'pending'),
+  (3, 6, '2023-04-10', '2023-04-12', 180, 'pending'),
+  (4, 7, '2023-04-14', '2023-04-16', 160, 'pending'),
+  (5, 8, '2023-04-18', '2023-04-21', 450, 'pending'),
+  (
+    6,
+    9,
+    '2023-05-01',
+    '2023-05-03',
+    280,
+    'completed'
+  ),
+  (
+    7,
+    10,
+    '2023-05-04',
+    '2023-05-07',
+    390,
+    'completed'
+  ),
+  (
+    8,
+    2,
+    '2023-05-08',
+    '2023-05-10',
+    120,
+    'completed'
+  ),
+  (9, 3, '2023-05-11', '2023-05-12', 30, 'completed'),
+  (
+    10,
+    4,
+    '2023-05-14',
+    '2023-05-17',
+    300,
+    'completed'
+  ),
+  (
+    1,
+    5,
+    '2023-06-01',
+    '2023-06-04',
+    270,
+    'confirmed'
+  ),
+  (
+    2,
+    6,
+    '2023-06-05',
+    '2023-06-08',
+    270,
+    'confirmed'
+  ),
+  (3, 7, '2023-06-10', '2023-06-12', 90, 'confirmed'),
+  (
+    4,
+    8,
+    '2023-06-14',
+    '2023-06-16',
+    200,
+    'confirmed'
+  ),
+  (
+    5,
+    9,
+    '2023-06-18',
+    '2023-06-20',
+    280,
+    'confirmed'
+  );
 
 
 -- Query 1: JOIN
@@ -543,27 +676,51 @@ SELECT
   b.start_date,
   b.end_date,
   b.status
-FROM bookings b
-JOIN users u
-  ON b.user_id = u.user_id
-JOIN vehicles v
-  ON b.vehicle_id = v.vehicle_id;
-
+FROM
+  bookings b
+  JOIN users u ON b.user_id = u.user_id
+  JOIN vehicles v ON b.vehicle_id = v.vehicle_id;
 
 
 --Query 2: EXISTS
 --Requirement: Find all vehicles that have never been booked.
-
-SELECT *
-FROM vehicles v
-WHERE NOT EXISTS (
-  SELECT 1
-  FROM bookings b
-  WHERE b.vehicle_id = v.vehicle_id
-);
+SELECT
+  *
+FROM
+  vehicles v
+WHERE
+  NOT EXISTS (
+    SELECT
+      1
+    FROM
+      bookings b
+    WHERE
+      b.vehicle_id = v.vehicle_id
+  );
 
 
 --Query 3: WHERE
 --Requirement: Retrieve all available vehicles of a specific type (e.g. cars).
+SELECT
+  *
+FROM
+  vehicles
+WHERE
+  type = 'car'
+  AND status = 'available'
 
-SELECT * FROM vehicles WHERE type = 'car' and status = 'available'
+
+
+-- Query 4: GROUP BY and HAVING
+-- Requirement: Find the total number of bookings for each vehicle and display only those vehicles that have more than 2 bookings.
+SELECT
+  v.name AS vehicle_name,
+  COUNT(b.booking_id) AS total_bookings
+FROM
+  bookings b
+  JOIN vehicles v ON b.vehicle_id = v.vehicle_id
+GROUP BY
+  v.vehicle_id,
+  v.name
+HAVING
+  COUNT(b.booking_id) > 2;
